@@ -5,7 +5,8 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articleOne = {
+var articles = {
+    'article-one' : {
     title: 'Article One | Harpreet Singh',
     heading: 'Article One',
     date: 'Feb 22, 2018',
@@ -19,22 +20,28 @@ var articleOne = {
                     This is the content for my first article. This is the content for my first article. This is the content for my first article. This is the content for my first article.This is the content for my first article.This is the content for my first article.
                 </p>`
     
-};
-var articleTwo = {
+},
+    'article-two' : {
     title: 'Article Two | Harpreet Singh',
-    heading: 'Article One',
-    date: 'Feb 22, 2018',
+    heading: 'Article Two',
+    date: 'Feb 28, 2018',
     content: `<p>
-                    This is the content for my first article. This is the content for my first article. This is the content for my first article. This is the content for my first article.This is the content for my first article.This is the content for my first article.
-                </p>
-                <p>
-                    This is the content for my first article. This is the content for my first article. This is the content for my first article. This is the content for my first article.This is the content for my first article.This is the content for my first article.
-                </p>
-                <p>
-                    This is the content for my first article. This is the content for my first article. This is the content for my first article. This is the content for my first article.This is the content for my first article.This is the content for my first article.
+                    This is content for second article
                 </p>`
     
+},
+    'article-three' : {
+    title: 'Article Third | Harpreet Singh',
+    heading: 'Article Third',
+    date: 'Feb 28, 2018',
+    content: `<p>
+                    Tis is the content for third article
+                </p>`
+    
+}
 };
+
+
 function createTemplate(data) {
     var title = data.title;
     var date = data.date;
@@ -76,17 +83,14 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one', function (req, res) {
-    res.send(createTemplate(articleOne));
+app.get('/:articleName', function (req, res) {
+    // articleName = article-One
+    // articles[articleName] == {} content object for article one
+    var articleName = req.params.articleName;
+    res.send(createTemplate(articles[articleName]));
 });
 
-app.get('/article-two', function (req, res) {
-    res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
-});
 
-app.get('/article-three', function (req, res) {
-    res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
-});
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
