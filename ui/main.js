@@ -19,6 +19,6 @@ button.onclick = function () {
     };
     
     // Make the request
-    request.open('GET', 'http://http://jackofalltradesprogrammer.imad.hasura-app.io/counter', true);
+    request.open('GET', 'http://jackofalltradesprogrammer.imad.hasura-app.io/counter', true);
     request.send(null);
 };
