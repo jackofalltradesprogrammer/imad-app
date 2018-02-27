@@ -18,7 +18,7 @@ button.onclick = function () {
         
     };
     
-    // Make the request
+    // Make the request - localhost machine cannot access the counter from the url - no authentication
     request.open('GET', 'http://jackofalltradesprogrammer.imad.hasura-app.io/counter', true);
     request.send(null);
 };
