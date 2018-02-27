@@ -89,6 +89,16 @@ app.get('/counter', function (req, res) {
     res.send(counter.toString());
 });
 
+var names =[];
+app.get('/submit-name', function(req, res) {  // URL: /submit-name?name=xxxx
+    //Get the name from the request
+    var name = req.query.name; //TODO
+
+    names.push(name);
+    // JSON: Javascript Ojbect Notation
+    res.send(JSON.stringify(names)); //TODO
+});
+
 app.get('/:articleName', function (req, res) {
     // articleName = article-One this will happen automatically coz of the express framework. so example - camerName will be camel-one, camel-two
     // articles[articleName] == {} content object for article one
@@ -108,6 +118,7 @@ app.get('/ui/main.js', function(req, res) {
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
+
 
 
 // Do not change port, otherwise your app won't run on IMAD servers
