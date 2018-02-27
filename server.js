@@ -99,12 +99,12 @@ app.get('/submit-name', function(req, res) {  // URL: /submit-name?name=xxxx
     res.send(JSON.stringify(names)); //TODO
 });
 
-app.get('/:articleName', function (req, res) {
-    // articleName = article-One this will happen automatically coz of the express framework. so example - camerName will be camel-one, camel-two
-    // articles[articleName] == {} content object for article one
-    var articleName = req.params.articleName;
-    res.send(createTemplate(articles[articleName]));
-});
+// app.get('/:articleName', function (req, res) {
+//     // articleName = article-One this will happen automatically coz of the express framework. so example - camerName will be camel-one, camel-two
+//     // articles[articleName] == {} content object for article one
+//     var articleName = req.params.articleName;
+//     res.send(createTemplate(articles[articleName]));
+// });
 
 
 
