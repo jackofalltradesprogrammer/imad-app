@@ -2,7 +2,7 @@ var express = require('express'); // to create the web server
 var morgan = require('morgan'); //to log the details of the server server
 var path = require('path');
 var Pool = require('pg').Pool;
-
+console.log(process.env.DB_PASSWORD);
 var config = {
     user: 'jackofalltradesprogrammer',
     database: 'jackofalltradesprogrammer',
