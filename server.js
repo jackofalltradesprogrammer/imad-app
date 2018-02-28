@@ -2,7 +2,7 @@ var express = require('express'); // to create the web server
 var morgan = require('morgan'); //to log the details of the server server
 var path = require('path');
 var Pool = require('pg').Pool;
-console.log(process.env.DB_PASSWORD);
+
 var config = {
     user: 'jackofalltradesprogrammer',
     database: 'jackofalltradesprogrammer',
@@ -94,7 +94,8 @@ app.get('/', function (req, res) {
 
 var pool = new Pool(config);
 app.get('/test-db', function(req,res){
-    // make a select request
+    // make a select request 
+    console.log(process.env.DB_PASSWORD);
     // return a response with results
     pool.query('SELECT * FROM test', function(err, result){
         if(err){
