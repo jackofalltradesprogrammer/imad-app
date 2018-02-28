@@ -19,24 +19,14 @@ var articles = {
     title: 'Article One | Harpreet Singh',
     heading: 'Article One',
     date: 'Feb 22, 2018',
-    content: `<p>
-                    This is the content for my first article. This is the content for my first article. This is the content for my first article. This is the content for my first article.This is the content for my first article.This is the content for my first article.
-                </p>
-                <p>
-                    This is the content for my first article. This is the content for my first article. This is the content for my first article. This is the content for my first article.This is the content for my first article.This is the content for my first article.
-                </p>
-                <p>
-                    This is the content for my first article. This is the content for my first article. This is the content for my first article. This is the content for my first article.This is the content for my first article.This is the content for my first article.
-                </p>`
+    content: ``
     
 },
     'article-two' : {
     title: 'Article Two | Harpreet Singh',
     heading: 'Article Two',
     date: 'Feb 28, 2018',
-    content: `<p>
-                    This is content for second article
-                </p>`
+    content: ``
     
 },
     'article-three' : {
@@ -126,7 +116,7 @@ app.get('/articles/:articleName', function (req, res) {
     // articles[articleName] == {} content object for article one
     var articleName = req.params.articleName;
     
-    pool.query("SELECT * FROM article WHERE title = '" + req.params.articleName + "'", function (err, result){
+    pool.query("SELECT * FROM article WHERE title = $1" + [req.params.articleName] + "'", function (err, result){
             if (err) {
             res.status(500).send(err.toString());
             } else {
