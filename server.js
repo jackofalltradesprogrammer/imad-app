@@ -95,7 +95,7 @@ app.get('/', function (req, res) {
 var pool = new Pool(config);
 app.get('/test-db', function(req,res){
     // make a select request 
-    console.log(process.env.DB_PASSWORD);
+    console.log("working");
     // return a response with results
     pool.query('SELECT * FROM test', function(err, result){
         if(err){
