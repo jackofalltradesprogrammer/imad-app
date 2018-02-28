@@ -8,7 +8,7 @@ var config = {
     database: 'jackofalltradesprogrammer',
     host: 'db.imad.hasura-app.io',
     port: '5432',
-    password: process.env.DB_PASSWORD
+    password: 'db-jackofalltradesprogrammer-9400'//process.env.DB_PASSWORD
 };
 
 var app = express();
