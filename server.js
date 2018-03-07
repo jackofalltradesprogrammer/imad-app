@@ -14,31 +14,31 @@ var config = {
 var app = express();
 app.use(morgan('combined'));
 
-var articles = {
-    'article-one' : {
-    title: 'Article One | Harpreet Singh',
-    heading: 'Article One',
-    date: 'Feb 22, 2018',
-    content: ``
+// var articles = {
+//     'article-one' : {
+//     title: 'Article One | Harpreet Singh',
+//     heading: 'Article One',
+//     date: 'Feb 22, 2018',
+//     content: ``
     
-},
-    'article-two' : {
-    title: 'Article Two | Harpreet Singh',
-    heading: 'Article Two',
-    date: 'Feb 28, 2018',
-    content: ``
+// },
+//     'article-two' : {
+//     title: 'Article Two | Harpreet Singh',
+//     heading: 'Article Two',
+//     date: 'Feb 28, 2018',
+//     content: ``
     
-},
-    'article-three' : {
-    title: 'Article Third | Harpreet Singh',
-    heading: 'Article Third',
-    date: 'Feb 28, 2018',
-    content: `<p>
-                    Tis is the content for third article
-                </p>`
+// },
+//     'article-three' : {
+//     title: 'Article Third | Harpreet Singh',
+//     heading: 'Article Third',
+//     date: 'Feb 28, 2018',
+//     content: `<p>
+//                     Tis is the content for third article
+//                 </p>`
     
-}
-};
+// }
+// };
 
 
 function createTemplate(data) {
